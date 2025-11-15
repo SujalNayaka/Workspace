@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { MapPin, Calendar, Mic, MicOff } from 'lucide-react';
+import { MapPin, Calendar, Mic, MicOff, User } from 'lucide-react';
 import {
   Select,
   SelectContent,
@@ -18,6 +18,7 @@ interface SearchParams {
 
 interface LandingPageProps {
   onSearch: (params: SearchParams) => void;
+  onMyBookingsClick?: () => void;
 }
 
 const CITIES = [
@@ -44,7 +45,7 @@ const AMENITIES = [
   { id: 'cafe', label: 'Café', icon: '☕' },
 ];
 
-export default function LandingPage({ onSearch }: LandingPageProps) {
+export default function LandingPage({ onSearch, onMyBookingsClick }: LandingPageProps) {
   const [location, setLocation] = useState('');
   const [date, setDate] = useState('');
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
@@ -95,6 +96,16 @@ export default function LandingPage({ onSearch }: LandingPageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary via-background to-secondary">
+      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-end">
+        <button
+          onClick={onMyBookingsClick}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent/90 text-accent-foreground font-semibold transition-colors"
+        >
+          <User className="w-5 h-5" />
+          My Account
+        </button>
+      </div>
+
       <div className="max-w-6xl mx-auto px-4 py-20">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">

@@ -163,7 +163,10 @@ export default function Home() {
         </div>
 
         {currentPage === 'landing' && (
-          <LandingPage onSearch={handleSearch} />
+          <LandingPage 
+            onSearch={handleSearch}
+            onMyBookingsClick={handleMyBookings}
+          />
         )}
         {currentPage === 'search' && (
           <SearchResults 

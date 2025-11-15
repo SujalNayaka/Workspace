@@ -11,59 +11,59 @@ interface SpaceDetailsProps {
 }
 
 const MOCK_SPACES_MAP: Record<number, any> = {
-  1: { id: 1, name: 'TechHub Downtown', location: 'Koramangala, Bangalore', capacity: 30, amenities: ['wifi', 'ac', 'projector', 'parking'], hourly: 25, daily: 150, monthly: 2500 },
-  2: { id: 2, name: 'Creative Studio', location: 'Indiranagar, Bangalore', capacity: 20, amenities: ['wifi', 'ac', 'conference', 'cafe'], hourly: 30, daily: 180, monthly: 3000 },
-  3: { id: 3, name: 'Enterprise Office', location: 'Whitefield, Bangalore', capacity: 50, amenities: ['wifi', 'ac', 'projector', 'conference', 'parking'], hourly: 35, daily: 200, monthly: 3500 },
-  4: { id: 4, name: 'StartupHub Koramangala', location: 'Koramangala, Bangalore', capacity: 40, amenities: ['wifi', 'ac', 'gym', 'cafe', 'kitchen'], hourly: 20, daily: 120, monthly: 2000 },
-  5: { id: 5, name: 'Elite Workspace Indiranagar', location: 'Indiranagar, Bangalore', capacity: 35, amenities: ['wifi', 'ac', 'parking', 'conference', 'projector'], hourly: 28, daily: 170, monthly: 2800 },
-  6: { id: 6, name: 'The Office Whitefield', location: 'Whitefield, Bangalore', capacity: 45, amenities: ['wifi', 'ac', 'gym', 'parking', 'cafe'], hourly: 22, daily: 130, monthly: 2200 },
-  7: { id: 7, name: 'WorkHub Bandra', location: 'Bandra, Mumbai', capacity: 50, amenities: ['wifi', 'ac', 'conference', 'parking'], hourly: 35, daily: 210, monthly: 3500 },
-  8: { id: 8, name: 'Studio Space Lower Parel', location: 'Lower Parel, Mumbai', capacity: 38, amenities: ['wifi', 'ac', 'kitchen', 'cafe', 'gym'], hourly: 32, daily: 190, monthly: 3200 },
-  9: { id: 9, name: 'Corporate Desk Powai', location: 'Powai, Mumbai', capacity: 55, amenities: ['wifi', 'ac', 'projector', 'conference', 'parking'], hourly: 38, daily: 220, monthly: 3800 },
-  10: { id: 10, name: 'The Common Worli', location: 'Worli, Mumbai', capacity: 42, amenities: ['wifi', 'ac', 'cafe', 'parking', 'kitchen'], hourly: 30, daily: 180, monthly: 3000 },
-  11: { id: 11, name: 'BusinessHub Dadar', location: 'Dadar, Mumbai', capacity: 36, amenities: ['wifi', 'ac', 'conference', 'parking', 'gym'], hourly: 28, daily: 170, monthly: 2900 },
-  12: { id: 12, name: 'StartHub Andheri', location: 'Andheri, Mumbai', capacity: 30, amenities: ['wifi', 'ac', 'kitchen', 'cafe', 'parking'], hourly: 26, daily: 155, monthly: 2600 },
-  13: { id: 13, name: 'PrimeDesk Connaught Place', location: 'Connaught Place, Delhi', capacity: 60, amenities: ['wifi', 'ac', 'projector', 'conference', 'parking'], hourly: 40, daily: 240, monthly: 4000 },
-  14: { id: 14, name: 'OfficeSpace Gurgaon', location: 'Gurgaon, Delhi', capacity: 45, amenities: ['wifi', 'ac', 'gym', 'parking', 'cafe'], hourly: 35, daily: 210, monthly: 3500 },
-  15: { id: 15, name: 'CreativeHub Dwarka', location: 'Dwarka, Delhi', capacity: 40, amenities: ['wifi', 'ac', 'kitchen', 'cafe', 'conference'], hourly: 28, daily: 170, monthly: 2900 },
-  16: { id: 16, name: 'CorporateOffice Noida', location: 'Noida, Delhi', capacity: 35, amenities: ['wifi', 'ac', 'parking', 'gym', 'conference'], hourly: 24, daily: 145, monthly: 2500 },
-  17: { id: 17, name: 'WorkSpace Sector 62', location: 'Sector 62, Noida', capacity: 32, amenities: ['wifi', 'ac', 'parking', 'cafe', 'kitchen'], hourly: 22, daily: 135, monthly: 2300 },
-  18: { id: 18, name: 'StartupHQ Gurugram', location: 'Gurugram, Delhi', capacity: 44, amenities: ['wifi', 'ac', 'gym', 'conference', 'parking'], hourly: 32, daily: 190, monthly: 3200 },
-  19: { id: 19, name: 'TechSpace Hitech City', location: 'Hitech City, Hyderabad', capacity: 40, amenities: ['wifi', 'ac', 'projector', 'parking', 'cafe'], hourly: 22, daily: 135, monthly: 2300 },
-  20: { id: 20, name: 'OfficeHub Banjara Hills', location: 'Banjara Hills, Hyderabad', capacity: 38, amenities: ['wifi', 'ac', 'conference', 'gym', 'parking'], hourly: 25, daily: 150, monthly: 2600 },
-  21: { id: 21, name: 'CreativeSpace Jubilee Hills', location: 'Jubilee Hills, Hyderabad', capacity: 35, amenities: ['wifi', 'ac', 'kitchen', 'cafe', 'conference'], hourly: 24, daily: 145, monthly: 2500 },
-  22: { id: 22, name: 'WorkHub Gachibowli', location: 'Gachibowli, Hyderabad', capacity: 32, amenities: ['wifi', 'ac', 'parking', 'gym', 'cafe'], hourly: 20, daily: 125, monthly: 2200 },
-  23: { id: 23, name: 'StartupSpace Kondapur', location: 'Kondapur, Hyderabad', capacity: 36, amenities: ['wifi', 'ac', 'projector', 'kitchen', 'parking'], hourly: 21, daily: 130, monthly: 2300 },
-  24: { id: 24, name: 'OfficeHub Baner', location: 'Baner, Pune', capacity: 35, amenities: ['wifi', 'ac', 'conference', 'parking', 'cafe'], hourly: 20, daily: 125, monthly: 2200 },
-  25: { id: 25, name: 'WorkSpace Hinjewadi', location: 'Hinjewadi, Pune', capacity: 32, amenities: ['wifi', 'ac', 'gym', 'parking', 'kitchen'], hourly: 18, daily: 110, monthly: 1950 },
-  26: { id: 26, name: 'CreativeHub Wakad', location: 'Wakad, Pune', capacity: 38, amenities: ['wifi', 'ac', 'projector', 'cafe', 'conference'], hourly: 22, daily: 135, monthly: 2300 },
-  27: { id: 27, name: 'BusinessDesk Viman Nagar', location: 'Viman Nagar, Pune', capacity: 30, amenities: ['wifi', 'ac', 'parking', 'cafe', 'gym'], hourly: 19, daily: 120, monthly: 2100 },
-  28: { id: 28, name: 'StartupHub Koregaon Park', location: 'Koregaon Park, Pune', capacity: 36, amenities: ['wifi', 'ac', 'projector', 'kitchen', 'parking'], hourly: 21, daily: 130, monthly: 2300 },
-  29: { id: 29, name: 'CorporateDesk Salt Lake', location: 'Salt Lake, Kolkata', capacity: 32, amenities: ['wifi', 'ac', 'projector', 'parking', 'cafe'], hourly: 18, daily: 110, monthly: 1900 },
-  30: { id: 30, name: 'WorkHub Park Circus', location: 'Park Circus, Kolkata', capacity: 28, amenities: ['wifi', 'ac', 'conference', 'gym', 'kitchen'], hourly: 16, daily: 100, monthly: 1800 },
-  31: { id: 31, name: 'CreativeSpace Alipore', location: 'Alipore, Kolkata', capacity: 30, amenities: ['wifi', 'ac', 'cafe', 'parking', 'projector'], hourly: 17, daily: 105, monthly: 1850 },
-  32: { id: 32, name: 'OfficeHub Ballygunge', location: 'Ballygunge, Kolkata', capacity: 25, amenities: ['wifi', 'ac', 'kitchen', 'parking', 'conference'], hourly: 15, daily: 95, monthly: 1700 },
-  33: { id: 33, name: 'StartHub Sector V', location: 'Sector V, Kolkata', capacity: 29, amenities: ['wifi', 'ac', 'gym', 'cafe', 'parking'], hourly: 16, daily: 100, monthly: 1800 },
-  34: { id: 34, name: 'BusinessHub SG Highway', location: 'SG Highway, Ahmedabad', capacity: 33, amenities: ['wifi', 'ac', 'parking', 'conference', 'cafe'], hourly: 17, daily: 105, monthly: 1900 },
-  35: { id: 35, name: 'WorkSpace Satellite', location: 'Satellite, Ahmedabad', capacity: 31, amenities: ['wifi', 'ac', 'gym', 'kitchen', 'parking'], hourly: 16, daily: 100, monthly: 1800 },
-  36: { id: 36, name: 'CreativeOffice Vastrapur', location: 'Vastrapur, Ahmedabad', capacity: 36, amenities: ['wifi', 'ac', 'projector', 'cafe', 'conference'], hourly: 18, daily: 110, monthly: 2000 },
-  37: { id: 37, name: 'OfficeHub Navrangpura', location: 'Navrangpura, Ahmedabad', capacity: 28, amenities: ['wifi', 'ac', 'parking', 'cafe', 'gym'], hourly: 15, daily: 95, monthly: 1700 },
-  38: { id: 38, name: 'StartupHub Paldi', location: 'Paldi, Ahmedabad', capacity: 32, amenities: ['wifi', 'ac', 'kitchen', 'parking', 'conference'], hourly: 16, daily: 100, monthly: 1800 },
-  39: { id: 39, name: 'BusinessDesk C-Scheme', location: 'C-Scheme, Jaipur', capacity: 32, amenities: ['wifi', 'ac', 'projector', 'parking', 'cafe'], hourly: 16, daily: 100, monthly: 1800 },
-  40: { id: 40, name: 'WorkHub Malviya Nagar', location: 'Malviya Nagar, Jaipur', capacity: 29, amenities: ['wifi', 'ac', 'conference', 'gym', 'kitchen'], hourly: 15, daily: 95, monthly: 1700 },
-  41: { id: 41, name: 'CreativeSpace Raja Park', location: 'Raja Park, Jaipur', capacity: 33, amenities: ['wifi', 'ac', 'cafe', 'parking', 'projector'], hourly: 17, daily: 105, monthly: 1900 },
-  42: { id: 42, name: 'OfficeHub Sodala', location: 'Sodala, Jaipur', capacity: 26, amenities: ['wifi', 'ac', 'kitchen', 'parking', 'gym'], hourly: 14, daily: 90, monthly: 1600 },
-  43: { id: 43, name: 'StartupDesk Vaishali Nagar', location: 'Vaishali Nagar, Jaipur', capacity: 30, amenities: ['wifi', 'ac', 'parking', 'cafe', 'conference'], hourly: 15, daily: 95, monthly: 1700 },
-  44: { id: 44, name: 'CorporateHub Gomti Nagar', location: 'Gomti Nagar, Lucknow', capacity: 30, amenities: ['wifi', 'ac', 'parking', 'conference', 'cafe'], hourly: 14, daily: 85, monthly: 1500 },
-  45: { id: 45, name: 'WorkSpace Hazratganj', location: 'Hazratganj, Lucknow', capacity: 27, amenities: ['wifi', 'ac', 'gym', 'kitchen', 'parking'], hourly: 13, daily: 80, monthly: 1450 },
-  46: { id: 46, name: 'CreativeOffice Indira Nagar', location: 'Indira Nagar, Lucknow', capacity: 32, amenities: ['wifi', 'ac', 'projector', 'cafe', 'conference'], hourly: 15, daily: 90, monthly: 1600 },
-  47: { id: 47, name: 'OfficeHub Aliganj', location: 'Aliganj, Lucknow', capacity: 24, amenities: ['wifi', 'ac', 'parking', 'cafe', 'gym'], hourly: 12, daily: 75, monthly: 1400 },
-  48: { id: 48, name: 'StartupHub Balaganj', location: 'Balaganj, Lucknow', capacity: 28, amenities: ['wifi', 'ac', 'kitchen', 'parking', 'conference'], hourly: 13, daily: 80, monthly: 1450 },
-  49: { id: 49, name: 'BusinessDesk Sector 17', location: 'Sector 17, Chandigarh', capacity: 34, amenities: ['wifi', 'ac', 'projector', 'parking', 'cafe'], hourly: 18, daily: 110, monthly: 1950 },
-  50: { id: 50, name: 'WorkHub Sector 35', location: 'Sector 35, Chandigarh', capacity: 31, amenities: ['wifi', 'ac', 'conference', 'gym', 'kitchen'], hourly: 16, daily: 100, monthly: 1800 },
-  51: { id: 51, name: 'CreativeSpace Sector 22', location: 'Sector 22, Chandigarh', capacity: 33, amenities: ['wifi', 'ac', 'cafe', 'parking', 'projector'], hourly: 17, daily: 105, monthly: 1900 },
-  52: { id: 52, name: 'OfficeHub Sector 9', location: 'Sector 9, Chandigarh', capacity: 28, amenities: ['wifi', 'ac', 'kitchen', 'parking', 'gym'], hourly: 15, daily: 95, monthly: 1700 },
-  53: { id: 53, name: 'StartupSpace Sector 43', location: 'Sector 43, Chandigarh', capacity: 30, amenities: ['wifi', 'ac', 'parking', 'cafe', 'conference'], hourly: 16, daily: 100, monthly: 1800 },
+  1: { id: 1, name: 'TechHub Downtown', location: 'Koramangala, Bangalore', capacity: 30, amenities: ['wifi', 'ac', 'projector', 'parking'], hourly: 1000, daily: 10000, monthly: 60000 },
+  2: { id: 2, name: 'Creative Studio', location: 'Indiranagar, Bangalore', capacity: 20, amenities: ['wifi', 'ac', 'conference', 'cafe'], hourly: 1200, daily: 12000, monthly: 72000 },
+  3: { id: 3, name: 'Enterprise Office', location: 'Whitefield, Bangalore', capacity: 50, amenities: ['wifi', 'ac', 'projector', 'conference', 'parking'], hourly: 1500, daily: 15000, monthly: 90000 },
+  4: { id: 4, name: 'StartupHub Koramangala', location: 'Koramangala, Bangalore', capacity: 40, amenities: ['wifi', 'ac', 'gym', 'cafe', 'kitchen'], hourly: 800, daily: 8000, monthly: 48000 },
+  5: { id: 5, name: 'Elite Workspace Indiranagar', location: 'Indiranagar, Bangalore', capacity: 35, amenities: ['wifi', 'ac', 'parking', 'conference', 'projector'], hourly: 1100, daily: 11000, monthly: 66000 },
+  6: { id: 6, name: 'The Office Whitefield', location: 'Whitefield, Bangalore', capacity: 45, amenities: ['wifi', 'ac', 'gym', 'parking', 'cafe'], hourly: 900, daily: 9000, monthly: 54000 },
+  7: { id: 7, name: 'WorkHub Bandra', location: 'Bandra, Mumbai', capacity: 50, amenities: ['wifi', 'ac', 'conference', 'parking'], hourly: 1400, daily: 14000, monthly: 84000 },
+  8: { id: 8, name: 'Studio Space Lower Parel', location: 'Lower Parel, Mumbai', capacity: 38, amenities: ['wifi', 'ac', 'kitchen', 'cafe', 'gym'], hourly: 1300, daily: 13000, monthly: 78000 },
+  9: { id: 9, name: 'Corporate Desk Powai', location: 'Powai, Mumbai', capacity: 55, amenities: ['wifi', 'ac', 'projector', 'conference', 'parking'], hourly: 1600, daily: 16000, monthly: 96000 },
+  10: { id: 10, name: 'The Common Worli', location: 'Worli, Mumbai', capacity: 42, amenities: ['wifi', 'ac', 'cafe', 'parking', 'kitchen'], hourly: 1200, daily: 12000, monthly: 72000 },
+  11: { id: 11, name: 'BusinessHub Dadar', location: 'Dadar, Mumbai', capacity: 36, amenities: ['wifi', 'ac', 'conference', 'parking', 'gym'], hourly: 1100, daily: 11000, monthly: 66000 },
+  12: { id: 12, name: 'StartHub Andheri', location: 'Andheri, Mumbai', capacity: 30, amenities: ['wifi', 'ac', 'kitchen', 'cafe', 'parking'], hourly: 1000, daily: 10000, monthly: 60000 },
+  13: { id: 13, name: 'PrimeDesk Connaught Place', location: 'Connaught Place, Delhi', capacity: 60, amenities: ['wifi', 'ac', 'projector', 'conference', 'parking'], hourly: 1700, daily: 17000, monthly: 102000 },
+  14: { id: 14, name: 'OfficeSpace Gurgaon', location: 'Gurgaon, Delhi', capacity: 45, amenities: ['wifi', 'ac', 'gym', 'parking', 'cafe'], hourly: 1400, daily: 14000, monthly: 84000 },
+  15: { id: 15, name: 'CreativeHub Dwarka', location: 'Dwarka, Delhi', capacity: 40, amenities: ['wifi', 'ac', 'kitchen', 'cafe', 'conference'], hourly: 1100, daily: 11000, monthly: 66000 },
+  16: { id: 16, name: 'CorporateOffice Noida', location: 'Noida, Delhi', capacity: 35, amenities: ['wifi', 'ac', 'parking', 'gym', 'conference'], hourly: 950, daily: 9500, monthly: 57000 },
+  17: { id: 17, name: 'WorkSpace Sector 62', location: 'Sector 62, Noida', capacity: 32, amenities: ['wifi', 'ac', 'parking', 'cafe', 'kitchen'], hourly: 850, daily: 8500, monthly: 51000 },
+  18: { id: 18, name: 'StartupHQ Gurugram', location: 'Gurugram, Delhi', capacity: 44, amenities: ['wifi', 'ac', 'gym', 'conference', 'parking'], hourly: 1300, daily: 13000, monthly: 78000 },
+  19: { id: 19, name: 'TechSpace Hitech City', location: 'Hitech City, Hyderabad', capacity: 40, amenities: ['wifi', 'ac', 'projector', 'parking', 'cafe'], hourly: 900, daily: 9000, monthly: 54000 },
+  20: { id: 20, name: 'OfficeHub Banjara Hills', location: 'Banjara Hills, Hyderabad', capacity: 38, amenities: ['wifi', 'ac', 'conference', 'gym', 'parking'], hourly: 1000, daily: 10000, monthly: 60000 },
+  21: { id: 21, name: 'CreativeSpace Jubilee Hills', location: 'Jubilee Hills, Hyderabad', capacity: 35, amenities: ['wifi', 'ac', 'kitchen', 'cafe', 'conference'], hourly: 950, daily: 9500, monthly: 57000 },
+  22: { id: 22, name: 'WorkHub Gachibowli', location: 'Gachibowli, Hyderabad', capacity: 32, amenities: ['wifi', 'ac', 'parking', 'gym', 'cafe'], hourly: 800, daily: 8000, monthly: 48000 },
+  23: { id: 23, name: 'StartupSpace Kondapur', location: 'Kondapur, Hyderabad', capacity: 36, amenities: ['wifi', 'ac', 'projector', 'kitchen', 'parking'], hourly: 850, daily: 8500, monthly: 51000 },
+  24: { id: 24, name: 'OfficeHub Baner', location: 'Baner, Pune', capacity: 35, amenities: ['wifi', 'ac', 'conference', 'parking', 'cafe'], hourly: 800, daily: 8000, monthly: 48000 },
+  25: { id: 25, name: 'WorkSpace Hinjewadi', location: 'Hinjewadi, Pune', capacity: 32, amenities: ['wifi', 'ac', 'gym', 'parking', 'kitchen'], hourly: 750, daily: 7500, monthly: 45000 },
+  26: { id: 26, name: 'CreativeHub Wakad', location: 'Wakad, Pune', capacity: 38, amenities: ['wifi', 'ac', 'projector', 'cafe', 'conference'], hourly: 900, daily: 9000, monthly: 54000 },
+  27: { id: 27, name: 'BusinessDesk Viman Nagar', location: 'Viman Nagar, Pune', capacity: 30, amenities: ['wifi', 'ac', 'parking', 'cafe', 'gym'], hourly: 750, daily: 7500, monthly: 45000 },
+  28: { id: 28, name: 'StartupHub Koregaon Park', location: 'Koregaon Park, Pune', capacity: 36, amenities: ['wifi', 'ac', 'projector', 'kitchen', 'parking'], hourly: 850, daily: 8500, monthly: 51000 },
+  29: { id: 29, name: 'CorporateDesk Salt Lake', location: 'Salt Lake, Kolkata', capacity: 32, amenities: ['wifi', 'ac', 'projector', 'parking', 'cafe'], hourly: 700, daily: 7000, monthly: 42000 },
+  30: { id: 30, name: 'WorkHub Park Circus', location: 'Park Circus, Kolkata', capacity: 28, amenities: ['wifi', 'ac', 'conference', 'gym', 'kitchen'], hourly: 650, daily: 6500, monthly: 39000 },
+  31: { id: 31, name: 'CreativeSpace Alipore', location: 'Alipore, Kolkata', capacity: 30, amenities: ['wifi', 'ac', 'cafe', 'parking', 'projector'], hourly: 700, daily: 7000, monthly: 42000 },
+  32: { id: 32, name: 'OfficeHub Ballygunge', location: 'Ballygunge, Kolkata', capacity: 25, amenities: ['wifi', 'ac', 'kitchen', 'parking', 'conference'], hourly: 600, daily: 6000, monthly: 36000 },
+  33: { id: 33, name: 'StartHub Sector V', location: 'Sector V, Kolkata', capacity: 29, amenities: ['wifi', 'ac', 'gym', 'cafe', 'parking'], hourly: 650, daily: 6500, monthly: 39000 },
+  34: { id: 34, name: 'BusinessHub SG Highway', location: 'SG Highway, Ahmedabad', capacity: 33, amenities: ['wifi', 'ac', 'parking', 'conference', 'cafe'], hourly: 700, daily: 7000, monthly: 42000 },
+  35: { id: 35, name: 'WorkSpace Satellite', location: 'Satellite, Ahmedabad', capacity: 31, amenities: ['wifi', 'ac', 'gym', 'kitchen', 'parking'], hourly: 650, daily: 6500, monthly: 39000 },
+  36: { id: 36, name: 'CreativeOffice Vastrapur', location: 'Vastrapur, Ahmedabad', capacity: 36, amenities: ['wifi', 'ac', 'projector', 'cafe', 'conference'], hourly: 750, daily: 7500, monthly: 45000 },
+  37: { id: 37, name: 'OfficeHub Navrangpura', location: 'Navrangpura, Ahmedabad', capacity: 28, amenities: ['wifi', 'ac', 'parking', 'cafe', 'gym'], hourly: 600, daily: 6000, monthly: 36000 },
+  38: { id: 38, name: 'StartupHub Paldi', location: 'Paldi, Ahmedabad', capacity: 32, amenities: ['wifi', 'ac', 'kitchen', 'parking', 'conference'], hourly: 650, daily: 6500, monthly: 39000 },
+  39: { id: 39, name: 'BusinessDesk C-Scheme', location: 'C-Scheme, Jaipur', capacity: 32, amenities: ['wifi', 'ac', 'projector', 'parking', 'cafe'], hourly: 700, daily: 7000, monthly: 42000 },
+  40: { id: 40, name: 'WorkHub Malviya Nagar', location: 'Malviya Nagar, Jaipur', capacity: 29, amenities: ['wifi', 'ac', 'conference', 'gym', 'kitchen'], hourly: 600, daily: 6000, monthly: 36000 },
+  41: { id: 41, name: 'CreativeSpace Raja Park', location: 'Raja Park, Jaipur', capacity: 33, amenities: ['wifi', 'ac', 'cafe', 'parking', 'projector'], hourly: 700, daily: 7000, monthly: 42000 },
+  42: { id: 42, name: 'OfficeHub Sodala', location: 'Sodala, Jaipur', capacity: 26, amenities: ['wifi', 'ac', 'kitchen', 'parking', 'gym'], hourly: 550, daily: 5500, monthly: 33000 },
+  43: { id: 43, name: 'StartupDesk Vaishali Nagar', location: 'Vaishali Nagar, Jaipur', capacity: 30, amenities: ['wifi', 'ac', 'parking', 'cafe', 'conference'], hourly: 600, daily: 6000, monthly: 36000 },
+  44: { id: 44, name: 'CorporateHub Gomti Nagar', location: 'Gomti Nagar, Lucknow', capacity: 30, amenities: ['wifi', 'ac', 'parking', 'conference', 'cafe'], hourly: 550, daily: 5500, monthly: 33000 },
+  45: { id: 45, name: 'WorkSpace Hazratganj', location: 'Hazratganj, Lucknow', capacity: 27, amenities: ['wifi', 'ac', 'gym', 'kitchen', 'parking'], hourly: 500, daily: 5000, monthly: 30000 },
+  46: { id: 46, name: 'CreativeOffice Indira Nagar', location: 'Indira Nagar, Lucknow', capacity: 32, amenities: ['wifi', 'ac', 'projector', 'cafe', 'conference'], hourly: 600, daily: 6000, monthly: 36000 },
+  47: { id: 47, name: 'OfficeHub Aliganj', location: 'Aliganj, Lucknow', capacity: 24, amenities: ['wifi', 'ac', 'parking', 'cafe', 'gym'], hourly: 500, daily: 5000, monthly: 30000 },
+  48: { id: 48, name: 'StartupHub Balaganj', location: 'Balaganj, Lucknow', capacity: 28, amenities: ['wifi', 'ac', 'kitchen', 'parking', 'conference'], hourly: 550, daily: 5500, monthly: 33000 },
+  49: { id: 49, name: 'BusinessDesk Sector 17', location: 'Sector 17, Chandigarh', capacity: 34, amenities: ['wifi', 'ac', 'projector', 'parking', 'cafe'], hourly: 750, daily: 7500, monthly: 45000 },
+  50: { id: 50, name: 'WorkHub Sector 35', location: 'Sector 35, Chandigarh', capacity: 31, amenities: ['wifi', 'ac', 'conference', 'gym', 'kitchen'], hourly: 650, daily: 6500, monthly: 39000 },
+  51: { id: 51, name: 'CreativeSpace Sector 22', location: 'Sector 22, Chandigarh', capacity: 33, amenities: ['wifi', 'ac', 'cafe', 'parking', 'projector'], hourly: 700, daily: 7000, monthly: 42000 },
+  52: { id: 52, name: 'OfficeHub Sector 9', location: 'Sector 9, Chandigarh', capacity: 28, amenities: ['wifi', 'ac', 'kitchen', 'parking', 'gym'], hourly: 600, daily: 6000, monthly: 36000 },
+  53: { id: 53, name: 'StartupSpace Sector 43', location: 'Sector 43, Chandigarh', capacity: 30, amenities: ['wifi', 'ac', 'parking', 'cafe', 'conference'], hourly: 650, daily: 6500, monthly: 39000 },
 };
 
 export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = [] }: SpaceDetailsProps) {
@@ -83,10 +83,10 @@ export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = []
   const [monthToDate, setMonthToDate] = useState('');
 
   const addOnsData = [
-    { id: 'projector', name: 'Projector', price: 150 },
-    { id: 'parking', name: 'Parking', price: 50 },
-    { id: 'locker', name: 'Locker', price: 40 },
-    { id: 'conference', name: 'Conference Room', price: 300 },
+    { id: 'projector', name: 'Projector', price: 1000 },
+    { id: 'parking', name: 'Parking', price: 500 },
+    { id: 'locker', name: 'Locker', price: 300 },
+    { id: 'conference', name: 'Conference Room', price: 2000 },
   ];
 
   useEffect(() => {
@@ -113,7 +113,6 @@ export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = []
     setCheckInDate(today);
     setCheckOutDate(today);
     setMonthFromDate(today);
-    // Set default month end date to 30 days later
     const thirtyDaysLater = new Date();
     thirtyDaysLater.setDate(thirtyDaysLater.getDate() + 30);
     setMonthToDate(thirtyDaysLater.toISOString().split('T')[0]);
@@ -131,7 +130,6 @@ export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = []
       const bookedStartHour = parseInt(booked.startTime);
       const bookedEndHour = parseInt(booked.endTime || (bookedStartHour + 1));
       
-      // Check if there's any overlap between requested slot and booked slot
       return !(slotEndHour <= bookedStartHour || slotHour >= bookedEndHour);
     });
   };
@@ -145,7 +143,6 @@ export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = []
       
       const bookedDate = new Date(booked.date);
       
-      // Check if booking date falls within our requested range
       return bookedDate >= checkInDate && bookedDate <= checkOutDate;
     });
   };
@@ -159,7 +156,6 @@ export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = []
       
       const bookedDate = new Date(booked.date);
       
-      // Check if the booked date falls within the selected range
       return bookedDate >= fromDate && bookedDate <= toDate;
     });
   };
@@ -167,7 +163,6 @@ export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = []
   const isPeakHour = (fromTime: string, toTime: string) => {
     const fromHour = parseInt(fromTime);
     const toHour = parseInt(toTime);
-    // Peak hours are 12pm to 5pm (12:00 to 17:00)
     return fromHour >= 12 && toHour <= 17;
   };
 
@@ -189,12 +184,12 @@ export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = []
 
   const calculatePrice = () => {
     let basePrice = 0;
-    let peakHourMultiplier = 1;
+    let peakHourSurcharge = 0;
 
     if (duration === '1h') {
       basePrice = space.hourly;
       if (selectedSlot && toTime && isPeakHour(selectedSlot, toTime)) {
-        peakHourMultiplier = 1.2;
+        peakHourSurcharge = 1000;
       }
     } else if (duration === '1d') {
       const checkIn = new Date(checkInDate);
@@ -208,13 +203,13 @@ export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = []
       basePrice = space.monthly * months;
     }
 
-    const demandMultiplier = 1.15; // 15% demand surge
+    const demandMultiplier = 1.15;
     let addOnsCost = selectedAddOns.reduce((sum, id) => {
       const addOn = addOnsData.find(a => a.id === id);
       return sum + (addOn?.price || 0);
     }, 0);
 
-    return Math.round(basePrice * peakHourMultiplier * demandMultiplier + addOnsCost);
+    return Math.round(basePrice * demandMultiplier + peakHourSurcharge + addOnsCost);
   };
 
   if (!space) return <div className="p-8">Loading...</div>;
@@ -420,7 +415,7 @@ export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = []
                 <div className="mb-4 p-3 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
                   <p className="text-xs font-medium text-blue-800 dark:text-blue-300">
                     {isPeakHour(selectedSlot, toTime) 
-                      ? '⚡ Peak hours (12pm-5pm): +20% surcharge applied'
+                      ? '⚡ Peak hours (12pm-5pm): +₹1000 surcharge applied'
                       : '✓ Non-peak hours: Regular pricing'}
                   </p>
                 </div>
@@ -546,9 +541,9 @@ export default function SpaceDetails({ spaceId, onBook, onBack, bookedSlots = []
             </div>
             {duration === '1h' && selectedSlot && toTime && isPeakHour(selectedSlot, toTime) && (
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Peak Hour Surcharge (+20%)</span>
+                <span className="text-muted-foreground">Peak Hour Surcharge</span>
                 <span className="text-foreground font-medium">
-                  ₹{Math.round(space.hourly * 0.2)}
+                  ₹1000
                 </span>
               </div>
             )}
