@@ -30,6 +30,8 @@ interface BookingState {
   totalPrice?: number;
   bookingId?: string;
   qrCode?: string;
+  monthFromDate?: string;
+  monthToDate?: string;
 }
 
 export default function Home() {
@@ -96,16 +98,40 @@ export default function Home() {
     });
     localStorage.setItem('coworkingBookings', JSON.stringify(bookings));
 
-    // Save to booked slots to block them
     const bookedSlots = localStorage.getItem('bookedSlots');
     const slots = bookedSlots ? JSON.parse(bookedSlots) : [];
-    slots.push({
-      spaceId: data.spaceId,
-      date: data.date,
-      startTime: data.startTime,
-      endTime: data.endTime,
-      bookingId,
-    });
+    
+    if (data.duration === '1m') {
+      const fromDate = new Date(data.monthFromDate!);
+      const toDate = new Date(data.monthToDate!);
+      
+      // Create a slot entry for each day in the monthly booking range
+      for (let d = new Date(fromDate); d <= toDate; d.setDate(d.getDate() + 1)) {
+        slots.push({
+          spaceId: data.spaceId,
+          date: d.toISOString().split('T')[0],
+          startTime: '00:00',
+          endTime: '23:59',
+          bookingId,
+        });
+      }
+    } else {
+      const startHour = parseInt(data.startTime!);
+      const endHour = data.duration === '1h' 
+        ? startHour + 1 
+        : data.duration === '1d'
+        ? startHour + 24
+        : startHour; // For monthly, just store start time
+
+      slots.push({
+        spaceId: data.spaceId,
+        date: data.date,
+        startTime: data.startTime,
+        endTime: String(endHour).padStart(2, '0') + ':00',
+        bookingId,
+      });
+    }
+    
     localStorage.setItem('bookedSlots', JSON.stringify(slots));
 
     setBookingData(bookingWithId);

@@ -28,6 +28,19 @@ interface SearchResultsProps {
   onBack: () => void;
 }
 
+const CITY_WORKSPACE_MAP: Record<string, number[]> = {
+  'Bangalore': [1, 2, 3, 4, 5, 6],
+  'Mumbai': [7, 8, 9, 10, 11, 12],
+  'Delhi': [13, 14, 15, 16, 17, 18],
+  'Hyderabad': [19, 20, 21, 22, 23],
+  'Pune': [24, 25, 26, 27, 28],
+  'Kolkata': [29, 30, 31, 32, 33],
+  'Ahmedabad': [34, 35, 36, 37, 38],
+  'Jaipur': [39, 40, 41, 42, 43],
+  'Lucknow': [44, 45, 46, 47, 48],
+  'Chandigarh': [49, 50, 51, 52, 53],
+};
+
 export default function SearchResults({ searchParams, onSelectSpace, onBack }: SearchResultsProps) {
   const [spaces, setSpaces] = useState<Space[]>([]);
   const [loading, setLoading] = useState(true);
@@ -694,7 +707,16 @@ export default function SearchResults({ searchParams, onSelectSpace, onBack }: S
     ];
 
     setTimeout(() => {
-      setSpaces(mockSpaces);
+      const cityIds = CITY_WORKSPACE_MAP[searchParams.location] || [];
+      let filteredByCity = mockSpaces.filter(space => cityIds.includes(space.id));
+
+      if (searchParams.amenities.length > 0) {
+        filteredByCity = filteredByCity.filter(space =>
+          searchParams.amenities.every(amenity => space.amenities.includes(amenity))
+        );
+      }
+
+      setSpaces(filteredByCity);
       setLoading(false);
     }, 500);
   }, [searchParams]);
@@ -766,7 +788,7 @@ export default function SearchResults({ searchParams, onSelectSpace, onBack }: S
               </div>
             ))}
           </div>
-        ) : (
+        ) : spaces.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sorted.map(space => (
               <div
@@ -825,6 +847,10 @@ export default function SearchResults({ searchParams, onSelectSpace, onBack }: S
                 </div>
               </div>
             ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground text-lg">No workspaces found matching your criteria.</p>
           </div>
         )}
       </div>

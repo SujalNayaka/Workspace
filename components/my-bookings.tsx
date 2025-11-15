@@ -6,13 +6,20 @@ import { ArrowLeft, Calendar, Clock, MapPin, DollarSign, CheckCircle, AlertCircl
 interface Booking {
   id: string;
   spaceName: string;
+  spaceId: number;
   date: string;
   startTime: string;
-  endTime: string;
+  endTime?: string;
   duration: string;
   totalPrice: number;
   status: 'upcoming' | 'completed' | 'cancelled';
   addOns: string[];
+  checkInDate?: string;
+  checkOutDate?: string;
+  checkInTime?: string;
+  checkOutTime?: string;
+  monthFromDate?: string;
+  monthToDate?: string;
 }
 
 interface MyBookingsProps {
@@ -49,6 +56,44 @@ export default function MyBookings({ onBack }: MyBookingsProps) {
     if (status === 'upcoming') return <AlertCircle className="w-4 h-4" />;
     if (status === 'completed') return <CheckCircle className="w-4 h-4" />;
     return null;
+  };
+
+  const handleCancelBooking = (bookingId: string) => {
+    if (!window.confirm('Are you sure you want to cancel this booking?')) return;
+
+    // Update booking status
+    const updatedBookings = bookings.map(b => 
+      b.id === bookingId ? { ...b, status: 'cancelled' as const } : b
+    );
+    setBookings(updatedBookings);
+    localStorage.setItem('coworkingBookings', JSON.stringify(updatedBookings));
+
+    const savedSlots = localStorage.getItem('bookedSlots');
+    if (savedSlots) {
+      const slots = JSON.parse(savedSlots);
+      const filteredSlots = slots.filter((slot: any) => slot.bookingId !== bookingId);
+      localStorage.setItem('bookedSlots', JSON.stringify(filteredSlots));
+      console.log('[v0] Slots freed for booking ID:', bookingId);
+    }
+  };
+
+  const getDisplayTime = (booking: Booking) => {
+    if (booking.duration === '1h') {
+      const endHour = parseInt(booking.startTime) + 1;
+      return `${booking.startTime} - ${String(endHour).padStart(2, '0')}:00`;
+    } else if (booking.duration === '1d') {
+      return `${booking.checkInTime} - ${booking.checkOutTime}`;
+    } else {
+      return `${booking.monthFromDate} to ${booking.monthToDate}`;
+    }
+  };
+
+  const getDisplayDate = (booking: Booking) => {
+    if (booking.duration === '1h' || booking.duration === '1d') {
+      return new Date(booking.date).toLocaleDateString('en-IN');
+    } else {
+      return `${new Date(booking.monthFromDate!).toLocaleDateString('en-IN')} to ${new Date(booking.monthToDate!).toLocaleDateString('en-IN')}`;
+    }
   };
 
   return (
@@ -96,15 +141,15 @@ export default function MyBookings({ onBack }: MyBookingsProps) {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <Calendar className="w-4 h-4" />
-                        {new Date(booking.date).toLocaleDateString('en-IN')}
+                        {getDisplayDate(booking)}
                       </div>
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <Clock className="w-4 h-4" />
-                        {booking.startTime} - {booking.endTime}
+                        {getDisplayTime(booking)}
                       </div>
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <MapPin className="w-4 h-4" />
-                        {booking.duration}
+                        {booking.duration === '1h' ? '1 Hour' : booking.duration === '1d' ? '1 Day' : '1 Month'}
                       </div>
                       <div className="flex items-center gap-2 font-semibold text-accent">
                         <DollarSign className="w-4 h-4" />
@@ -131,7 +176,10 @@ export default function MyBookings({ onBack }: MyBookingsProps) {
                       View Details
                     </button>
                     {booking.status === 'upcoming' && (
-                      <button className="px-4 py-2 bg-red-100 hover:bg-red-200 text-red-800 dark:bg-red-900/20 dark:text-red-300 rounded-lg font-medium transition-colors">
+                      <button 
+                        onClick={() => handleCancelBooking(booking.id)}
+                        className="px-4 py-2 bg-red-100 hover:bg-red-200 text-red-800 dark:bg-red-900/20 dark:text-red-300 rounded-lg font-medium transition-colors"
+                      >
                         Cancel
                       </button>
                     )}
